@@ -1,75 +1,179 @@
-# React + TypeScript + Vite
+# TaskFlow Board - Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 Project Overview
 
-Currently, two official plugins are available:
+A responsive Trello-style task management application with drag-and-drop functionality, filtering, sorting, and localStorage persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+-   **Live URL**: [Deployed Link Here]
+-   **GitHub Repo**: [Repository Link Here]
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ✨ Features
 
-Note: This will impact Vite dev & build performances.
+### Core Features
 
-## Expanding the ESLint configuration
+-   ✅ 3-Column Kanban Board (To-Do, In-Progress, Completed)
+-   ✅ Drag & Drop between columns
+-   ✅ Create, Read, Update, Delete tasks
+-   ✅ Priority levels (High, Medium, Low)
+-   ✅ Due date tracking with visual indicators
+-   ✅ Duplicate task detection
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### UI/UX Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+-   ✅ Fully responsive design (Mobile, Tablet, Desktop)
+-   ✅ Clean, modern interface with Tailwind CSS
+-   ✅ Task creation/editing modal
+-   ✅ Confirmation modal for deletions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Advanced Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+-   ✅ Filter by priority and status
+-   ✅ Sort by: Newest, Oldest, Due Date
+-   ✅ LocalStorage persistence
+-   ✅ Initial data from JSON file
+-   ✅ Real-time status updates
+
+## 🛠️ Tech Stack
+
+-   **React** - Frontend framework
+-   **Tailwind CSS** - Styling
+-   **react-beautiful-dnd** - Drag and drop
+-   **date-fns** - Date manipulation
+-   **React Icons** - Icons
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Navbar.jsx          # Navigation bar
+│   ├── TaskForm.jsx        # Task creation/edit form
+│   ├── TaskCard.jsx        # Individual task display
+│   ├── Column.jsx          # Kanban column
+│   ├── FilterSort.jsx      # Filter & sort controls
+│   └── ConfirmationModal.jsx # Delete confirmation
+├── hooks/
+│   └── useLocalStorage.js  # Custom localStorage hook
+├── utils/
+│   └── helpers.js          # Utility functions
+├── App.jsx                 # Main component
+└── index.js               # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔧 Installation & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+-   Node.js (v14 or higher)
+-   npm or yarn
+
+### Steps
+
+1. Clone the repository:
+
+```bash
+git clone [your-repo-url]
+cd taskflow-board
 ```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start development server:
+
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📝 Usage Instructions
+
+### Adding a Task
+
+1. Click "Add Task" button in navigation
+2. Fill in task details (title, description, priority, due date, status)
+3. Click "Create Task"
+
+### Editing a Task
+
+1. Click edit icon (✏️) on task card
+2. Modify task details
+3. Click "Update Task"
+
+### Deleting a Task
+
+1. Click delete icon (🗑️) on task card
+2. Confirm deletion in modal
+
+### Moving Tasks
+
+-   Drag and drop tasks between columns to change status
+
+### Filtering & Sorting
+
+-   Use filters to show tasks by priority or status
+-   Sort tasks by: Newest, Oldest, Closest due date
+
+## 🚀 Deployment
+
+### Deploy on Vercel
+
+1. Install Vercel CLI:
+
+```bash
+npm i -g vercel
+```
+
+2. Deploy:
+
+```bash
+vercel
+```
+
+### Deploy on GitHub Pages
+
+1. Update `package.json`:
+
+```json
+"homepage": "https://username.github.io/repo-name",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+```
+
+2. Deploy:
+
+```bash
+npm run deploy
+```
+
+## 📦 Available Scripts
+
+-   `npm start` - Start development server
+-   `npm run build` - Build for production
+-   `npm test` - Run tests
+-   `npm run deploy` - Deploy to GitHub Pages
+
+## 🗃️ Data Storage
+
+-   All task data persists in browser's localStorage
+-   Initial tasks loaded from `public/tasks.json`
+-   Data survives browser refresh/restart
+
+## 📱 Browser Support
+
+-   Chrome 90+
+-   Firefox 88+
+-   Safari 14+
+-   Edge 90+
+
+## 📄 License
+
+MIT License
